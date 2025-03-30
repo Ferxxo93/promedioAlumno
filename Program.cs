@@ -1,7 +1,7 @@
 ﻿using System;
 
 // initialize variables - graded assignments 
-int currentAssignments = 5;
+int examAssignments = 5;
 
 int[] mauroScores = new int[]{90, 86, 87, 98, 100, 94, 90};
 int[] juanScores = new int[]{92, 89, 81, 96, 90, 89};
@@ -34,12 +34,18 @@ foreach(string nombres in nombreAlumnos)
 
     decimal notaActual = 0;
 
+    int notasAsignadas = 0;
+
     foreach (int score in alumnoPuntaje)
     {
+        notasAsignadas+=1;
+        if(notasAsignadas<=examAssignments)
         sumPuntajeTarea += score;
+        else
+        sumPuntajeTarea += score / 10;
     }
 
-    notaActual = (decimal)(sumPuntajeTarea) / currentAssignments;
+    notaActual = (decimal)(sumPuntajeTarea) / examAssignments;
 
     if(notaActual >= 97)
         letraNotaAlumno = "A+";
