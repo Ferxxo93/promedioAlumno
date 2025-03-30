@@ -7,8 +7,13 @@ int[] mauroScores = new int[]{90, 86, 87, 98, 100, 94, 90};
 int[] juanScores = new int[]{92, 89, 81, 96, 90, 89};
 int[] emmaScores = new int[]{90, 85, 87, 98, 68, 89, 89, 89};
 int[] lucasScores = new int[]{90, 95, 87, 88, 96, 96};
+int[] ferScores = new int[]{ 92, 91, 90, 91, 92, 92, 92 };
+int[] micaScores = new int[]{ 84, 86, 88, 90, 92, 94, 96, 98 };
+int[] camiScores = new int[]{ 80, 90, 100, 80, 90, 100, 80, 90 };
+int[] moreScores = new int[]{ 91, 91, 91, 91, 91, 91, 91 };
 
-string[] nombreAlumnos = new string[] {"Mauro", "Juan", "Emma", "Lucas"};
+
+string[] nombreAlumnos = new string[] {"Mauro", "Juan", "Emma", "Lucas", "Fer", "Micaela", "Camila", "Morena"};
 int[] alumnoPuntaje = new int[10];
 string letraNotaAlumno = " ";
 
@@ -29,6 +34,16 @@ foreach(string nombres in nombreAlumnos)
 
     else if (estudianteActual == "Lucas")
         alumnoPuntaje = lucasScores;
+    else if (estudianteActual == "Fer")
+        alumnoPuntaje = ferScores;
+    else if (estudianteActual == "Micaela")
+        alumnoPuntaje = micaScores;
+    else if (estudianteActual == "Camila")
+        alumnoPuntaje = camiScores;
+    else if (estudianteActual == "Morena")
+        alumnoPuntaje = moreScores;
+    else 
+        continue;
         
     int sumPuntajeTarea = 0;
 
