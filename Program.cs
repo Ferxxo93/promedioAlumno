@@ -1,7 +1,7 @@
 ﻿using System;
 
 // initialize variables - graded assignments 
-int examAssignments = 5;
+int examenesAsignados = 5;
 
 int[] mauroScores = new int[]{90, 86, 87, 98, 100, 94, 90};
 int[] juanScores = new int[]{92, 89, 81, 96, 90, 89};
@@ -17,7 +17,7 @@ string[] nombreAlumnos = new string[] {"Mauro", "Juan", "Emma", "Lucas", "Fer", 
 int[] alumnoPuntaje = new int[10];
 string letraNotaAlumno = " ";
 
-Console.WriteLine("Alumno\t\tNota\n");
+Console.WriteLine("Alumno\t\tNota Examen\tNota Final\tLetra\t\tCrédito Extra");
 
 foreach(string nombres in nombreAlumnos)
 {
@@ -34,17 +34,24 @@ foreach(string nombres in nombreAlumnos)
 
     else if (estudianteActual == "Lucas")
         alumnoPuntaje = lucasScores;
+
     else if (estudianteActual == "Fer")
         alumnoPuntaje = ferScores;
+
     else if (estudianteActual == "Micaela")
         alumnoPuntaje = micaScores;
+
     else if (estudianteActual == "Camila")
         alumnoPuntaje = camiScores;
+
     else if (estudianteActual == "Morena")
         alumnoPuntaje = moreScores;
+        
     else 
         continue;
-        
+
+    int sumPuntajeExamen = 0;
+
     int sumPuntajeTarea = 0;
 
     decimal notaActual = 0;
@@ -53,14 +60,19 @@ foreach(string nombres in nombreAlumnos)
 
     foreach (int score in alumnoPuntaje)
     {
-        notasAsignadas+=1;
-        if(notasAsignadas<=examAssignments)
-        sumPuntajeTarea += score;
+        if(notasAsignadas < examenesAsignados)
+            sumPuntajeExamen += score;
         else
-        sumPuntajeTarea += score / 10;
-    }
+            sumPuntajeTarea += score / 10;
 
-    notaActual = (decimal)(sumPuntajeTarea) / examAssignments;
+        notasAsignadas++;
+   }
+
+    decimal notaExamen = (decimal)(sumPuntajeExamen) / examenesAsignados;
+
+    decimal creditoExtra =(decimal) (sumPuntajeTarea) / examenesAsignados;
+
+    notaActual = notaExamen + creditoExtra / examenesAsignados;
 
     if(notaActual >= 97)
         letraNotaAlumno = "A+";
@@ -88,7 +100,7 @@ foreach(string nombres in nombreAlumnos)
         letraNotaAlumno = "D-";
     else letraNotaAlumno = "F";
 
-    Console.WriteLine($"{estudianteActual}\t\t{notaActual}\t{letraNotaAlumno}");
+    Console.WriteLine($"{estudianteActual,-10}\t{notaExamen,5:F1}\t\t{notaActual,5:F1}\t\t{letraNotaAlumno,-5}\t\t{(creditoExtra)}");
     
 }
 
